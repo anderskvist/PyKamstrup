@@ -14,7 +14,7 @@ while (true); do
 
     grep "None" "${DATAFILE}.temp"
     if [ $? -ne 0 ]; then
-	if [ $(wc -l ${DATAFILE}|awk '{print $1}') -ne ${EXPECTLINES} ]; then
+	if [ $(wc -l ${DATAFILE}|awk '{print $1}') -eq ${EXPECTLINES} ]; then
 	    mv ${DATAFILE}.temp ${DATAFILE}
 	else
 	    echo "$(date) Expected ${EXPECTLINES} lines in ${DATAFILE}.temp but got $(wc -l ${DATAFILE}.temp)"
