@@ -13,7 +13,11 @@ while (true); do
 
     grep "None" "${DATAFILE}.temp"
     if [ $? -ne 0 ]; then
-	mv ${DATAFILE}.temp ${DATAFILE}
+	if [ $(wc -l ${DATAFILE}|awk '{print $1}') -eq 13 ]; then
+	    mv ${DATAFILE}.temp ${DATAFILE}
+	else
+	    rm -f ${DATAFILE}.temp
+	fi
     else
 	rm -f ${DATAFILE}.temp
     fi
