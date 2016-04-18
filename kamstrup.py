@@ -95,7 +95,7 @@ escapes = {
 #
 class kamstrup(object):
 
-	def __init__(self, serial_port = "/dev/cuaU0"):
+	def __init__(self, serial_port = "/dev/ttyUSB0"):
 		self.debug_fd = open("/tmp/_kamstrup", "a")
 		self.debug_fd.write("\n\nStart\n")
 		self.debug_id = None
