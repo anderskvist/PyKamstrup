@@ -8,7 +8,6 @@ if [ $(pgrep -x $(basename ${0}) -c) -gt 1 ]; then
 fi
 
 while (true); do
-    echo ${PID} > ${PIDFILE}
     $(dirname ${0})/kamstrup.py > ${DATAFILE}.temp
 
     grep "None" "${DATAFILE}.temp"
