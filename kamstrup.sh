@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 DATAFILE=/tmp/kamstrup.data
-
+LOGFILE=/var/log/$(basename ${0}|cut -d"." -f1).log
 EXPECTLINES=13
 
 if [ $(pgrep -x $(basename ${0}) -c) -gt 1 ]; then
     echo "Already running!"
     exit
-fi
+fi >> ${LOGFILE} 2>&1
 
 while (true); do
     $(dirname ${0})/kamstrup.py > ${DATAFILE}.temp
@@ -26,4 +26,4 @@ while (true); do
     fi
 
     sleep 1
-done
+done >> ${LOGFILE} 2>&1
