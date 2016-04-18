@@ -12,7 +12,7 @@ fi
 while (true); do
     $(dirname ${0})/kamstrup.py > ${DATAFILE}.temp
 
-    grep "None" "${DATAFILE}.temp"
+    grep "None" "${DATAFILE}.temp" -q
     if [ $? -ne 0 ]; then
 	if [ $(wc -l ${DATAFILE}.temp|awk '{print $1}') -eq ${EXPECTLINES} ]; then
 	    mv ${DATAFILE}.temp ${DATAFILE}
