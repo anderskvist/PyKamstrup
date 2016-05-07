@@ -12,7 +12,7 @@ from __future__ import print_function
 
 # You need pySerial 
 import serial
-
+import time
 import math
 
 #######################################################################
@@ -247,3 +247,5 @@ if __name__ == "__main__":
 	for i in kamstrup_382_var:
 		x,u = foo.readvar(i)
 		print("%-25s" % kamstrup_382_var[i], x, u)
+		time.sleep(0.05)
+
