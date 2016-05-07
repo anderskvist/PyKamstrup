@@ -24,6 +24,4 @@ while (true); do
 	echo "$(date) Error in one or more line"
 	rm -f ${DATAFILE}.temp
     fi
-
-    sleep 1
 done >> ${LOGFILE} 2>&1
